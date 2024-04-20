@@ -18,3 +18,6 @@
   * [MethodNotAllowedMiddleware](/bundled-middlewares/methodnotallowedmiddleware)
   * [DispatchMiddleware](/bundled-middlewares/dispatchmiddleware)
   * [NotFoundMiddleware](/bundled-middlewares/notfoundmiddleware)
+* [Recipes](/recipes/readme)
+  * [Enabling CORS](/recipes/enabling-cors)
+  * [Using PDO](/recipes/using-pdo)
