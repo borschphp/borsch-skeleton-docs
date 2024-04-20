@@ -1,15 +1,5 @@
 # Installation
 
-- [Presentation](#presentation)
-- [System requirements](#system-requirements)
-- [Create a new project](#create-a-new-project)
-- [Run it](#run-it)
-  - [With built-in PHP server](#with-built-in-php-server)
-  - [With Docker Compose](#with-docker-compose)
-  - [With Lando](#with-lando)
-  - [With FrankenPHP](#with-frankenphp)
-
-<a name="presentation"></a>
 ## Presentation
 
 Sometimes, you don't need an overkill solution like [Laravel](https://laravel.com/) or [Symfony](https://symfony.com/).
@@ -49,14 +39,12 @@ Dead simple, Borsch makes every effort possible to simplify configuration and pr
 
 Builds on top of PHP standard, source code and interfaces have been meticulously written to make you feel at home.
 
-<a name="system-requirements"></a>
 ## System requirements
 
 - PHP 8.1 or upper
 - Web server
 - [Composer](https://getcomposer.org/download/)
 
-<a name="create-a-new-project"></a>
 ## Create a new project
 
 Use the [Composer](https://getcomposer.org/download/)'s create-project command:
@@ -65,10 +53,8 @@ Use the [Composer](https://getcomposer.org/download/)'s create-project command:
 composer create-project borschphp/skeleton my-app-name
 ```
 
-<a name="run-it"></a>
 ## Run it
 
-<a name="with-built-in-php-server"></a>
 ### With built-in PHP server
 
 ```shell
@@ -79,22 +65,19 @@ or
 composer serve
 ```
 
-<a name="with-docker-compose"></a>
 ### With Docker Compose
 
 ```shell
 docker-compose up -d
 ```
 
-<a name="with-lando"></a>
-### With [Lando](https://lando.dev/)
+### With Lando
 
 ```shell
 lando start
 ```
 
-<a name="with-frankenphp"></a>
-### With [FrankenPHP](https://frankenphp.dev/docs/worker/)
+### With FrankenPHP
 
 ```shell
 docker run \
