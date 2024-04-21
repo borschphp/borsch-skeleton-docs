@@ -56,52 +56,47 @@ Example for the `/order[/{id:\d+}]` path upper
 namespace App\Handler;
 
 use Laminas\Diactoros\Response\JsonResponse;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface,ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 
 class OrderHandler implements RequestHandlerInterface
 {
     
-    protected function get(ServerRequestInterface $request): ResponseInterface
+    protected function getOrders(ServerRequestInterface $request): ResponseInterface
     {
         return new JsonResponse([
             // Orders...
         ]);
     }
     
-    protected function post(ServerRequestInterface $request): ResponseInterface
+    protected function postOrder(ServerRequestInterface $request): ResponseInterface
     {
         // Created order
         return new JsonResponse([]);
     }
     
-    protected function put(ServerRequestInterface $request, int $order_id): ResponseInterface
+    protected function putOrder(ServerRequestInterface $request, int $order_id): ResponseInterface
     {
-        // Update order
+        // Updated order
         return new JsonResponse([]);
     }
     
-    protected function delete(ServerRequestInterface $request, int $order_id): ResponseInterface
+    protected function deleteOrder(ServerRequestInterface $request, int $order_id): ResponseInterface
     {
-        // Delete order
+        // Deleted order
         return new JsonResponse([]);
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $order_id = (int)$request->getAttribute('id');
-        $method = strtolower($request->getMethod());
         
-        if (!method_exists($this, $method)) {
-            throw new \BadMethodCallException(sprintf(
-                'Method %s::%s is unknown...',
-                __CLASS__,
-                $method
-            ));
-        }
-        
-        return $this->{$method}($request, $order_id);
+        return match ($request->getMethod()) {
+            'GET' => $this->getOrders($request),
+            'POST' => $this->createOrder($request),
+            'PUT' => $this->updateOrder($request, $order_id),
+            'DELETE' => $this->deleteOrder($request, $order_id)
+        };
     }
 }
 ```
