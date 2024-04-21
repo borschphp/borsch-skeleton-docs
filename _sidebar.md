@@ -9,6 +9,7 @@
   * [Piping](/concepts/piping)
 * [Routing](/routing/readme)
   * [Overview](/routing/overview)
+  * [URI Generation](/routing/uri-generation)
 * [Bundled Middlewares](/bundled-middlewares/readme)
   * [ErrorHandlerMiddleware](/bundled-middlewares/errorhandlermiddleware)
   * [TrailingSlashMiddleware](/bundled-middlewares/trailingslashmiddleware)
