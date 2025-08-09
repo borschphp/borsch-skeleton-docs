@@ -6,34 +6,18 @@ Borsch uses the front-controller pattern to funnel HTTP requests received by you
 ## PHP built-in server
 
 > [!WARNING]
-> It is not intended to be a full-featured web server. It should not be used on production.
+> It is not intended to be a full-featured web server and should not be used on production.
 
 Run the following command in terminal to start a localhost web server:
 
 ```shell
 php -S 0.0.0.0:8080 -t ./public/ ./public/index.php
+# Or if you need to serve static files
+php -S 0.0.0.0:8080 -t ./public/ ./public/server.php
 # Or via composer script
 composer serve
 ```
 
-In the meantime, Borsch also provides 2 other method to spin up a local development server:
-
-- [docker-compose](https://docs.docker.com/compose/)
-- [lando](https://lando.dev/)
-
-Both provide a development environment with a database and PHPMyAdmin.
-
-#### Docker Compose
-
-```shell
-docker-compose up -d
-```
-
-#### Lando
-
-```shell
-lando start
-```
 ## Apache
 
 Make sure the server root points to `./public/index.php`, then make sure a `.htaccess` file exists in the same folder.  

@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Borsch Skeleton Docs</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Borsch is a simple and efficient PSR-15 micro framework made to kick start your web app or API development by using the tools you prefer, and provides minimal structure and facilities to ease your development.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link data-rh="true" rel="icon" href="/_media/logo.png">
+    <meta charset="UTF-8">
+    <title>Borsch Skeleton Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description"
+          content="Borsch is a simple and efficient PSR-15 micro framework made to kick start your web app or API development by using the tools you prefer, and provides minimal structure and facilities to ease your development.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link data-rh="true" rel="icon" href="/_media/logo.png">
 </head>
 <body>
-  <div id="app"></div>
-  <script>
+<div id="app"></div>
+<script>
     window.$docsify = {
-      name: 'Borsch Skeleton Documentation',
-      logo: '/_media/logo.png',
-      repo: 'borschphp/borsch-skeleton-docs',
-      themeColor: '#985075',
-      loadSidebar: true,
-      subMaxLevel: 1,
-      loadNavbar: false,
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        // placeholder: 'Tapez votre recherche',
-        // noData: 'Aucun résultat...',
-        depth: 4,
-        hideOtherSidebarContent: true,
-        namespace: 'borsck-skeleton-docs',
-        pathNamespaces: ['/']
-      }
+        name: 'Borsch Skeleton',
+        logo: '/_media/logo.png',
+        repo: 'https://github.com/borschphp/borsch-skeleton',
+        themeColor: '#985075',
+        loadSidebar: true,
+        subMaxLevel: 1,
+        loadNavbar: false,
+        auto2top: true,
+        pagination: {
+            crossChapter: true
+        },
+        search: {
+            maxAge: 86400000,
+            paths: 'auto',
+            // placeholder: 'Tapez votre recherche',
+            // noData: 'Aucun résultat...',
+            depth: 4,
+            hideOtherSidebarContent: true,
+            namespace: 'borsck-skeleton-docs',
+            pathNamespaces: ['/']
+        }
     }
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-apacheconf.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-nginx.min.js"></script>
+</script>
+<!-- Docsify v4 -->
+<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+<script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-apacheconf.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-nginx.min.js"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 </html>

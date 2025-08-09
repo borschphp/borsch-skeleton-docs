@@ -1,6 +1,7 @@
 # PSR-15 and PSR-7
 
-The Borsch Framework follows PSR's recommendations. Therefore:
+The Borsch Framework follows PSR's recommendations.  
+Therefore:
 
 * Routes must be handled by a [PSR-15 Request Handler](https://www.php-fig.org/psr/psr-15/), taking a 
 [PSR-7 Server Request](https://www.php-fig.org/psr/psr-7/) as unique parameter, and must return a
@@ -11,3 +12,8 @@ and a [PSR-15 Request Handler](https://www.php-fig.org/psr/psr-15/) as parameter
 [PSR-7 Response](https://www.php-fig.org/psr/psr-7/).
 
 Make sure you are confortable with both PSR-7 and PSR-15.
+
+> [!NOTE]
+> The Borsch Framework uses the [borschphp/psr7](https://github.com/borschphp/borsch-psr7) for its 
+> [PSR-7](https://www.php-fig.org/psr/psr-7/) and [PSR-15](https://www.php-fig.org/psr/psr-15/) implementation.  
+> You're free to use another implementation, but you will have to adapt the code accordingly.

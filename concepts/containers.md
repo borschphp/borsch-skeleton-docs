@@ -5,7 +5,7 @@ as DI, for developing your applications. These containers serve several purposes
 * Defining application dependencies (routers, template engines, error handlers, ...)
 * Managing middleware and related dependencies.
 
-You can easily define the container entries within the `config/container.php` file.
+You can easily define the container entries within the `config/container.php` and/or `config/containers/*.php` files.
 
 Our application skeleton seamlessly integrates dependency configurations, culminating in the creation of our own
 container: [Borsch Container](https://github.com/borschphp/borsch-container).  
@@ -20,3 +20,18 @@ To provide flexibility and empower developers to choose their preferred containe
 PSR-11 Container.  
 Which mean you can switch from [Borsch Container](https://github.com/borschphp/borsch-container) to another container
 of your liking.
+
+If you prefer using another [PSR-11](https://www.php-fig.org/psr/psr-11/) container but do not want to replace all the
+definition already defined by the skeleton, the Borsch container has a method to allow delegation to another
+[PSR-11](https://www.php-fig.org/psr/psr-11/) container.  
+In the `config/container.php` file, you can set the delegate to another container of your choice, like this:
+
+```php
+// ...
+
+$my_container = new MyContainer();
+// Set your definitions in $my_container, then delegate it to the Borsch container
+$container->delegate($my_container);
+```
+
+If a definition is not found in the Borsch container, it will be searched in the delegated container.

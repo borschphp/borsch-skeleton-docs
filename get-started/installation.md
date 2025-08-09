@@ -4,44 +4,47 @@
 
 Sometimes, you don't need an overkill solution like [Laravel](https://laravel.com/) or [Symfony](https://symfony.com/).
 
-Borsch is a simple and efficient [PSR-15](https://www.php-fig.org/psr/psr-15) micro framework made to kick-start your web app or API development by using the
-tools you prefer, and provides minimal structure and facilities to ease your development.
+Borsch is a simple and efficient [PSR-15](https://www.php-fig.org/psr/psr-15) micro framework made to kick-start your
+web app or API development by using the tools you prefer, provides a DDD file structure and facilities to ease your
+development.
 
 ```php
-use App\Handler\{HomeHandler, PeoplesHandler};
-use Borsch\Application\App;
+<?php
 
-/**
- * @param App $app
- * @see https://github.com/nikic/FastRoute
- */
-return function(App $app): void {
-    $app->get('/', HomeHandler::class, 'home');
+namespace Application\Handler;
 
-    $app->match(
-        ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-        '/api/peoples[/{id:\d+}]',
-        PeoplesHandler::class,
-        'peoples'
-    );
-};
+use Borsch\Http\Response\HtmlResponse;
+use Borsch\Template\TemplateRendererInterface;
+use Borsch\Router\Attribute\{Controller, Get};
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
+use Psr\Http\Server\RequestHandlerInterface;
+
+#[Controller]
+readonly class HomeHandler implements RequestHandlerInterface
+{
+
+    public function __construct(
+        protected TemplateRendererInterface $engine
+    ) {}
+
+    #[Get(path: '/', name: 'home')]
+    public function handle(ServerRequestInterface $request): ResponseInterface
+    {
+        $this->engine->assign([
+            'name' => (
+                $request->getQueryParams()['name'] ??
+                $request->getHeaderLine('X-Name')
+            ) ?: 'World'
+        ]);
+
+        return new HtmlResponse($this->engine->render('home.tpl'));
+    }
+}
 ```
-
-#### Approachable
-
-Borsch was designed from the ground up to be easily installed and used to get your app up and running quickly.
-
-#### Fast
-
-Dead simple, Borsch makes every effort possible to simplify configuration and processes resulting in an extra fast experience.
-
-#### Elegant
-
-Builds on top of PHP standard, source code and interfaces have been meticulously written to make you feel at home.
 
 ## System requirements
 
-- PHP 8.1 or upper
+- PHP 8.2 or upper
 - Web server
 - [Composer](https://getcomposer.org/download/)
 
@@ -65,18 +68,6 @@ or
 composer serve
 ```
 
-### With Docker Compose
-
-```shell
-docker-compose up -d
-```
-
-### With Lando
-
-```shell
-lando start
-```
-
 ### With FrankenPHP
 
 ```shell
@@ -94,4 +85,8 @@ docker run \
     -v $PWD:/app \
     -p 80:8080 -p 443:443 -p 443:443/udp \
     dunglas/frankenphp
+```
+or
+```shell
+composer franken
 ```
