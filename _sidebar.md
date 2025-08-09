@@ -6,6 +6,7 @@
   * [Application Life Cycle](/concepts/application-life-cycle)
   * [PSR-15 and PSR-7](/concepts/psr-15-and-psr-7)
   * [Containers](/concepts/containers)
+  * [DDD](/concepts/ddd)
 * [Routing](/routing/readme)
   * [Overview](/routing/overview)
   * [URI Generation](/routing/uri-generation)
